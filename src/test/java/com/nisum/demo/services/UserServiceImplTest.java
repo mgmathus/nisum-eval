@@ -32,7 +32,6 @@ public class UserServiceImplTest {
 
     @Test
     void registerUserTest() {
-
         final User user = new User();
         user.setId(10L);
         user.setName("Test");
