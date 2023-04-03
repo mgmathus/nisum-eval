@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "66d290b5-f93d-461a-a399-277880053471",
+		"name": "NISUM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@dominio.cl\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/v1/nisum/auth",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"nisum",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBkb21pbmlvLmNsIiwicm9sZXMiOm51bGwsImVtYWlsIjoiYWRtaW5AZG9taW5pby5jbCIsImlhdCI6MTY4MDQ3NDY4MCwiZXhwIjoxNjgwNTYxMDgwfQ.pX7ZXRI5-b3H6DjOeVRDL4fpn8xk1lEAfbvdSF1dDeEQMlfXmopSST7JM2SMk7yiTzhQ3Y24lBKAL03bdmSD8Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Miguel Mathus\",\r\n    \"email\":\"user1@dominio.cl\",\r\n    \"password\":\"12345678\",\r\n    \"phones\":[\r\n        {\r\n            \"number\":\"1234567\",\r\n            \"citycode\": \"1\",\r\n            \"countrycode\":57\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/v1/nisum/users/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"nisum",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user info",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBkb21pbmlvLmNsIiwicm9sZXMiOm51bGwsImVtYWlsIjoiYWRtaW5AZG9taW5pby5jbCIsImlhdCI6MTY4MDQ2MTk4MCwiZXhwIjoxNjgwNTQ4MzgwfQ.LrNg9agzhsAq8cVwVck1Yj6MVFKQHUncHXFUxl2A90Ai07d5xPJz4v6u-dZUOEzIM8bGG-EdT03QSInt6ZpJDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/v1/nisum/users/get/2",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"nisum",
+						"users",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

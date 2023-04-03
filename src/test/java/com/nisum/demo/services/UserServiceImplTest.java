@@ -58,5 +58,22 @@ public class UserServiceImplTest {
 
         final UserDTO savedUser = userService.registerUser(userDTO);
         Assertions.assertNotNull(savedUser);
+        Assertions.assertEquals(10L, savedUser.id());
+    }
+
+    @Test
+    void registerUserBadPasswordTest() {
+        final UserDTO userDTO = ImmutableUserDTO.builder()
+                .id(0L)
+                .name("Test")
+                .email("test@test.com")
+                .password("123456")
+                .addAllPhones(Collections.EMPTY_SET)
+                .isActive(true)
+                .modified(LocalDateTime.now())
+                .build();
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> userService.registerUser(userDTO));
     }
 }
